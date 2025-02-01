@@ -1,0 +1,9 @@
+﻿/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/Program.cs
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/obj/Debug/net8.0/DotNetWebApp.GlobalUsings.g.cs
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/obj/Debug/net8.0/DotNetWebApp.AssemblyInfo.cs
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/appsettings.Development.json
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/appsettings.json
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/Dockerfile
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/Properties/launchSettings.json
+/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/obj/Debug/net8.0/apphost

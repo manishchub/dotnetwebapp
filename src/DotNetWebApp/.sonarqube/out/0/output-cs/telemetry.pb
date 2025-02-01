@@ -1,0 +1,1 @@
+YRC/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp.csproj¢net8.0òCSharp12

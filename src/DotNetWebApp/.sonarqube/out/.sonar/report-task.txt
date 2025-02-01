@@ -1,0 +1,6 @@
+projectKey=MyDotNetApp
+serverUrl=http://localhost:9000
+serverVersion=25.1.0.102122
+dashboardUrl=http://localhost:9000/dashboard?id=MyDotNetApp
+ceTaskId=91f8ee37-5c18-4be0-81cb-636d0237c561
+ceTaskUrl=http://localhost:9000/api/ce/task?id=91f8ee37-5c18-4be0-81cb-636d0237c561

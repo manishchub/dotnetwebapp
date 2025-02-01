@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp/DotNetWebApp.csproj": {}
+    "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp.csproj": {}
   },
   "projects": {
-    "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp/DotNetWebApp.csproj": {
+    "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp/DotNetWebApp.csproj",
+        "projectUniqueName": "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp.csproj",
         "projectName": "DotNetWebApp",
-        "projectPath": "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp/DotNetWebApp.csproj",
+        "projectPath": "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp.csproj",
         "packagesPath": "/Users/mymac/.nuget/packages/",
-        "outputPath": "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/DotNetWebApp/obj/",
+        "outputPath": "/Users/mymac/Labs/dotnetwebapp/src/DotNetWebApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mymac/.nuget/NuGet/NuGet.Config"
