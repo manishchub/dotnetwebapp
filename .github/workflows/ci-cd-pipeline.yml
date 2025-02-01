@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0
+
+      - name: Restore dependencies
+        run: dotnet restore src/DotNetWebApp
+
+      - name: Build and publish
+        run: |
+          dotnet build --no-restore
+          dotnet publish -c Release -o out
+
+      - name: Run SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          dotnet tool install --global dotnet-sonarscanner
+          dotnet sonarscanner begin /k:"dotnetwebapp" /d:sonar.host.url="http://host.docker.internal:9000" /d:sonar.token="$SONAR_TOKEN"
+          dotnet build
+          dotnet test --collect:"XPlat Code Coverage" --results-directory coverage
+          dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
+
+      - name: Run Snyk Security Scan
+        uses: snyk/actions/dotnet@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true
+
+      - name: Build Docker Image
+        run: |
+          docker build -t dotnetwebapp:latest -f src/DotNetWebApp/Dockerfile .
+
+      - name: Push Docker Image to AWS ECR
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_URL }}
+          docker tag dotnetwebapp:latest ${{ secrets.AWS_ECR_URL }}/dotnetwebapp:latest
+          docker push ${{ secrets.AWS_ECR_URL }}/dotnetwebapp:latest
+
+      - name: Deploy to AWS EKS
+        run: |
+          aws eks --region us-east-1 update-kubeconfig --name ${{ secrets.AWS_EKS_CLUSTER }}
+          kubectl apply -f k8s/deployment.yaml
