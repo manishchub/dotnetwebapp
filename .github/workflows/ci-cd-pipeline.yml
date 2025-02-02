@@ -64,5 +64,6 @@ jobs:
 
       - name: Deploy to AWS EKS
         run: |
-          aws eks --region us-east-1 update-kubeconfig --name ${{ secrets.AWS_EKS_CLUSTER }}
-          kubectl apply -f k8s/deployment.yaml
+	   - name: Set AWS_ACCOUNT_ID
+        run: echo "AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)" >> $GITHUB_ENV
+        run: kubectl apply -f deployment.yaml
