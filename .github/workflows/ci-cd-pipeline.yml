@@ -64,6 +64,6 @@ jobs:
 
       - name: Deploy to AWS EKS
         run: |
-	   - name: Set AWS_ACCOUNT_ID
-        run: echo "AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)" >> $GITHUB_ENV
-        run: kubectl apply -f deployment.yaml
+	  set AWS_ACCOUNT_ID
+          echo "AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)" >> $GITHUB_ENV
+          kubectl apply -f deployment.yaml
