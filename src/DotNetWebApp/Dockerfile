@@ -5,7 +5,7 @@ WORKDIR /src
 # Copy everything and restore dependencies
 COPY . . 
 RUN pwd
-RUN cd src
+RUN cd src/DotNetWebApp
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
