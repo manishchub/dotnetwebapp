@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore src/DotNetWebApp
 
       - name: Debug - List Files
-        runL ls -R
+        run: ls -R
 
       - name: Build and publish
         run: |
