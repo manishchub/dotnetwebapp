@@ -1,6 +1,6 @@
 # Use the official .NET 8.0 image as a build environment
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
 # Copy everything and restore dependencies
 COPY . . 
