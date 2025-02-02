@@ -4,7 +4,7 @@ WORKDIR /src
 
 # Copy everything and restore dependencies
 COPY . . 
-RUN "ls -ltra"
+RUN ls
 RUN pwd
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
