@@ -21,6 +21,9 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore src/DotNetWebApp
 
+      - name: Debug - List Files
+        runL ls -R
+
       - name: Build and publish
         run: |
           dotnet build --no-restore
