@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dotnetwebapp
+  labels:
+    app: dotnetwebapp
 spec:
   replicas: 2
   selector:
@@ -13,21 +15,8 @@ spec:
         app: dotnetwebapp
     spec:
       containers:
-        - name: dotnetwebapp
-          image: ${{ secrets.AWS_ECR_URL }}/dotnetwebapp:latest
-          ports:
-            - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: dotnetwebapp-service
-spec:
-  selector:
-    app: dotnetwebapp
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
-  type: LoadBalancer
+      - name: dotnetwebapp
+        image: 248189926503.dkr.ecr.us-east-1.amazonaws.com/dotnetwebapp:latest
+        ports:
+        - containerPort: 80
 
