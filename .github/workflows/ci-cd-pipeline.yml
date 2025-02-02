@@ -26,6 +26,7 @@ jobs:
 
       - name: Build and publish
         run: |
+          cd src/DotNetWebApp
           dotnet build --no-restore
           dotnet publish -c Release -o out
 
