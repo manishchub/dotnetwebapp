@@ -1,9 +1,11 @@
 # Use the official .NET 8.0 image as a build environment
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src/DotNetWebApp
+WORKDIR /src
 
 # Copy everything and restore dependencies
 COPY . . 
+RUN "ls -ltra"
+RUN pwd
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
