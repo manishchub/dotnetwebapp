@@ -49,6 +49,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
+          cd src/DotNetWebApp
           docker build -t dotnetwebapp:latest -f src/DotNetWebApp/Dockerfile .
 
       - name: Push Docker Image to AWS ECR
