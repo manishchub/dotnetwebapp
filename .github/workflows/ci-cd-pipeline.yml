@@ -65,6 +65,7 @@ jobs:
         run: |
           aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name ${{ secrets.AWS_EKS_CLUSTER }}
           aws sts get-caller-identity
+          kubectl get configmap aws-auth -n kube-system -o yaml
           kubectl cluster-info
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
