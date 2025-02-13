@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: dotnetwebapp
-        image: 248189926503.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
+        image: "${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/$(ECR_REPOSITORY):latest"
         ports:
         - containerPort: 80
 
