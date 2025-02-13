@@ -69,6 +69,8 @@ jobs:
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
           aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name ${{ secrets.AWS_EKS_CLUSTER }}
           aws sts get-caller-identity
+          kubectl create secret generic ecr-repository --from-literal=ECR_REPOSITORY=${{ secrets.ECR_REPOSITORY }}
+          kubectl create secret generic aws-account-id --from-literal=AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID }}
           kubectl cluster-info
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
