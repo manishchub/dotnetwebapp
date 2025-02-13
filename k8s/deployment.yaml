@@ -15,19 +15,20 @@ spec:
         app: dotnetwebapp
     spec:
       containers:
-        env:
-          - name: AWS_ACCOUNT_ID
-            valueFrom:
-              secretKeyRef:
-                name: aws-account-id         # Secret Name
-                key: AWS_ACCOUNT_ID          # Key inside the Secret
-          - name: ECR_REPOSITORY
-            valueFrom:
-              secretKeyRef:
-                name: ecr-repository         # Secret Name
-                key: ECR_REPOSITORY          # Key inside the Secret
-      - name: dotnetwebapp
-        image: "${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/$(ECR_REPOSITORY):latest"
-        ports:
-        - containerPort: 80
-
+        - name: dotnetwebapp
+          image: "${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/$(ECR_REPOSITORY):latest"
+          ports:
+            - containerPort: 80
+          
+          # Section A: Environment Variables
+          env:
+            - name: AWS_ACCOUNT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-account-id
+                  key: AWS_ACCOUNT_ID
+            - name: ECR_REPOSITORY
+              valueFrom:
+                secretKeyRef:
+                  name: ecr-repository
+                  key: ECR_REPOSITORY
