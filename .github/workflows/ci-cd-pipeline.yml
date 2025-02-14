@@ -28,7 +28,9 @@ jobs:
         run: |
           cd src/DotNetWebApp
           dotnet build --no-restore
-          dotnet publish -c Release -o out
+          # dotnet publish -c Release -o out
+          dotnet publish -t:PublishContainer -c Release
+
 
       - name: Run SonarQube Scan
         env:
