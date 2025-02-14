@@ -11,6 +11,9 @@
   <ContainerPort>80</ContainerPort>
   <PublishProfile>DefaultContainer</PublishProfile>
 </PropertyGroup>
+<PropertyGroup>
+  <ContainerRuntime>docker</ContainerRuntime>
+</PropertyGroup>
 </Project>
 
 
