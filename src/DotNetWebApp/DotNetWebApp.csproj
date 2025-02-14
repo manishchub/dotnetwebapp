@@ -7,3 +7,10 @@
   </PropertyGroup>
 
 </Project>
+<PropertyGroup>
+  <ContainerImageName>dotnetwebapp</ContainerImageName>
+  <ContainerImageTags>latest</ContainerImageTags>
+  <ContainerPort>80</ContainerPort>
+  <PublishProfile>DefaultContainer</PublishProfile>
+</PropertyGroup>
+
