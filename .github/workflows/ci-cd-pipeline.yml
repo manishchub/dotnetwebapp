@@ -49,6 +49,10 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --file=src/DotNetWebApp/DotNetWebApp.csproj
+      - name: Monitor with Snyk (Uploads to Snyk Dashboard)
+        run: snyk monitor --file=src/DotNetWebApp/DotNetWebApp.csproj
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true
 
       - name: Build Docker Image
