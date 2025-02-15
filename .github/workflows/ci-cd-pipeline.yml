@@ -58,7 +58,7 @@ jobs:
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
       - name: Run Snyk Security Scan
-        run: snyk test --file=./src/DotNetWebApp/DotNetWebApp.csproj --package-manager=nuget --project-type=dotnetcore --all-projects --debug
+        run: snyk test --package-manager=nuget --project-type=dotnetcore --all-projects --debug
 
       - name: Monitor with Snyk (Uploads to Snyk Dashboard)
         run: snyk monitor --file=./src/DotNetWebApp/DotNetWebApp.csproj
