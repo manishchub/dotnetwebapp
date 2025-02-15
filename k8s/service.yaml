@@ -8,7 +8,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-internal: "false"       # External access (public)
     service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
     service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
-    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
+    #service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
 spec:
   type: LoadBalancer
   selector:
