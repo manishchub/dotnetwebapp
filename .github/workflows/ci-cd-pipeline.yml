@@ -42,7 +42,12 @@ jobs:
           dotnet build
           dotnet test --collect:"XPlat Code Coverage" --results-directory coverage
           dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
-       
+          
+      - name: Debug Directory Structure
+        run: |
+         pwd
+         ls -R
+
       - name: Run Snyk Security Scan
         uses: snyk/actions/dotnet@master
         env:
