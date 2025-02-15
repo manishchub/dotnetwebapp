@@ -77,4 +77,5 @@ jobs:
           kubectl create secret generic aws-account-id --from-literal=AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID }}
           kubectl cluster-info
           kubectl apply -f k8s/deployment.yaml
+          kubectl rollout restart deployment dotnetwebapp
           kubectl apply -f k8s/service.yaml
