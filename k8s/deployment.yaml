@@ -18,6 +18,7 @@ spec:
         - name: dotnetwebapp
           #image: "${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/$(ECR_REPOSITORY):latest"
           image: "248189926503.dkr.ecr.us-east-1.amazonaws.com/labs/dotnetimagerepo:latest"
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           
