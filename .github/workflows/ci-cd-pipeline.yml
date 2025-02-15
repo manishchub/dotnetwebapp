@@ -76,6 +76,8 @@ jobs:
           kubectl create secret generic ecr-repository --from-literal=ECR_REPOSITORY=${{ secrets.ECR_REPOSITORY }}
           kubectl create secret generic aws-account-id --from-literal=AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID }}
           kubectl cluster-info
+          kubectl annotate deployment dotnetwebapp kubernetes.io/change-cause="$(date +'%Y-%m-%d %H:%M:%S')" --overwrite
           kubectl apply -f k8s/deployment.yaml
-          kubectl rollout restart deployment dotnetwebapp
+          #kubectl apply -f k8s/deployment.yaml
+          #kubectl rollout restart deployment dotnetwebapp
           kubectl apply -f k8s/service.yaml
