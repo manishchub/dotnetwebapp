@@ -57,9 +57,9 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --file=./src/DotNetWebApp/DotNetWebApp.csproj
+          args: --file=src/DotNetWebApp/DotNetWebApp.csproj --project-name=DotNetWebApp
       - name: Monitor with Snyk (Uploads to Snyk Dashboard)
-        run: snyk monitor --file=./src/DotNetWebApp/DotNetWebApp.csproj
+        run: snyk monitor --file=src/DotNetWebApp/DotNetWebApp.csproj
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true
