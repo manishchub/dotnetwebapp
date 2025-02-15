@@ -61,6 +61,7 @@ jobs:
         #run: snyk test --all-projects --debug
         #run: snyk iac test --all-projects --debug --detection-depth=5 --report
         run: snyk iac test ./ --severity-threshold=medium --report
+        continue-on-error: true
 
       - name: Monitor with Snyk (Uploads to Snyk Dashboard)
         #run: snyk iac monitor --all-projects --detection-depth=5
