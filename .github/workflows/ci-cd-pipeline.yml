@@ -48,21 +48,17 @@ jobs:
          pwd
          ls -R
 
-      - name: Restore .NET Dependencies
-        run: dotnet restore ./src/DotNetWebApp/DotNetWebApp.csproj
+      - name: Install Snyk CLI
+        run: npm install -g snyk
 
-  
+      - name: Authenticate Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
       - name: Run Snyk Security Scan
-        uses: snyk/actions/dotnet@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --file=src/DotNetWebApp/DotNetWebApp.csproj --project-name=DotNetWebApp
+        run: snyk test --file=./src/DotNetWebApp/DotNetWebApp.csproj
+
       - name: Monitor with Snyk (Uploads to Snyk Dashboard)
-        run: snyk monitor --file=src/DotNetWebApp/DotNetWebApp.csproj
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        continue-on-error: true
+        run: snyk monitor --file=./src/DotNetWebApp/DotNetWebApp.csproj
 
       - name: Build Docker Image
         run: |
