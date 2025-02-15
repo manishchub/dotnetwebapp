@@ -2,11 +2,14 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 
+# Set the application to listen on port 80
+ENV ASPNETCORE_URLS=http://+:80
+
 # Use the .NET SDK image for building the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy the project file(s) from the /src/DotNetWebApp directory and restore dependencies
+# Copy the project file(s) and restore dependencies
 COPY src/DotNetWebApp/DotNetWebApp.csproj ./DotNetWebApp/
 WORKDIR /src/DotNetWebApp
 RUN dotnet restore
@@ -21,6 +24,9 @@ RUN dotnet publish -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-EXPOSE 80
-ENTRYPOINT ["dotnet", "DotNetWebApp.dll"]
 
+# Expose port 80
+EXPOSE 80
+
+# Start the application
+ENTRYPOINT ["dotnet", "DotNetWebApp.dll"]
