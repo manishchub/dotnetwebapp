@@ -61,7 +61,7 @@ jobs:
         run: snyk test --all-projects --debug
 
       - name: Monitor with Snyk (Uploads to Snyk Dashboard)
-        run: snyk monitor --file=./src/DotNetWebApp/DotNetWebApp.csproj
+        run: snyk monitor --all-projects
 
       - name: Build Docker Image
         run: |
