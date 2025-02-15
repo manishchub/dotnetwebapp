@@ -43,12 +43,12 @@ jobs:
           dotnet test --collect:"XPlat Code Coverage" --results-directory coverage
           dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
        
-        - name: Debug Workspace Structure
-          run: |
-           echo "Current Directory:"
-           pwd
-           echo "Listing all files in /github/workspace:"
-           ls -R /github/workspace
+      - name: Debug Workspace Structure
+        run: |
+         echo "Current Directory:"
+         pwd
+         echo "Listing all files in /github/workspace:"
+         ls -R /github/workspace
       - name: Run Snyk Security Scan
         uses: snyk/actions/dotnet@master
         env:
