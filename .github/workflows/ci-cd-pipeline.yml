@@ -48,6 +48,9 @@ jobs:
          pwd
          ls -R
 
+      - name: Restore .NET Packages
+        run: dotnet restore ./src/DotNetWebApp/DotNetWebApp.csproj
+
       - name: Install Snyk CLI
         run: npm install -g snyk
 
